@@ -129,7 +129,7 @@ export class FetchApiDataService {
    */
   public getFavoriteMovies(): Observable<any> {
     return this.http
-      .get(apiUrl + 'users/favorites', { headers: this.getAuthHeaders() })
+      .get(apiUrl + 'users/FavoriteMovies', { headers: this.getAuthHeaders() })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
@@ -142,7 +142,7 @@ export class FetchApiDataService {
   public addFavoriteMovie(movieId: string): Observable<any> {
     return this.http
       .post(
-        apiUrl + `users/favorites/${movieId}`,
+        apiUrl + `users/FavoriteMovies/${movieId}`,
         {},
         { headers: this.getAuthHeaders() },
       )
@@ -157,7 +157,7 @@ export class FetchApiDataService {
    */
   public editUser(updatedDetails: any): Observable<any> {
     return this.http
-      .put(apiUrl + 'users', updatedDetails, { headers: this.getAuthHeaders() })
+      .put(apiUrl + 'Users', updatedDetails, { headers: this.getAuthHeaders() })
       .pipe(catchError(this.handleError));
   }
 
@@ -168,7 +168,7 @@ export class FetchApiDataService {
    */
   public deleteUser(): Observable<any> {
     return this.http
-      .delete(apiUrl + 'users', { headers: this.getAuthHeaders() })
+      .delete(apiUrl + 'Users', { headers: this.getAuthHeaders() })
       .pipe(catchError(this.handleError));
   }
 
@@ -177,7 +177,7 @@ export class FetchApiDataService {
    */
   public removeFavoriteMovie(movieId: string): Observable<any> {
     return this.http
-      .delete(apiUrl + `users/favorites/${movieId}`, {
+      .delete(apiUrl + `users/FavoriteMovies/${movieId}`, {
         headers: this.getAuthHeaders(),
       })
       .pipe(catchError(this.handleError));
